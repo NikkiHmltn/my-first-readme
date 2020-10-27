@@ -1,24 +1,15 @@
 # My First README
 
 My repo explaining README.md
+#Tic-Tac-Toe
 
-``` javascript
-const handleWin = (letter) => {
-  gameIsLive = false;
-  if (letter === "x") {
-    statusDiv.innerHTML = `${letterToSymbol(letter)} has won!`;
-  } else {
-    statusDiv.innerHTML = `<span>${letterToSymbol(letter)} has won!</span>`;
-  }
-}; 
-```
 
 ## Steps to install on local computer
 1. Go to repo on Github profil
 2. `fork` and `clone` repo
 3. clone to computer
 ``` text
-git clone https://github.com/SEI-ATL/tic-tac-toe
+git clone https://github.com/NikkiHmltn/tic-tac-toe
 ```
 4. Got to `tic-tac-toe` directory
 5. Open `index.html` in directory
@@ -27,30 +18,42 @@ cd open index.html
 ```
 
 ``` css
-.grid {
-    background-color: salmon;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 50px;
+.X::before {
+  content: 'x';
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  font-size: 70px;;
+}
+
+.O::after {
+  content: 'o';
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  font-size: 70px;;
 }
 ```
 ```html
-<div class="grid">
-    <div class="box" id="box-1"></div>
-    <div class="box" id="box-2"></div>
-    <div class="box" id="box-3"></div>
-    <div class="box" id="box-4"></div>
-    <div class="box" id="box-5"></div>
-    <div class="box" id="box-6"></div>
-    <div class="box" id="box-7"></div>
-    <div class="box" id="box-8"></div>
-    <div class="box" id="box-9"></div>
-</div>
+ <div class="board">
+
+    <div class="box" id='box1'></div>
+    <div class="box" id='box2'></div>
+    <div class="box" id='box3'></div>
+    <div class="box" id='box4'></div>
+    <div class="box" id='box5'></div>
+    <div class="box" id='box6'></div>
+    <div class="box" id='box7'></div>
+    <div class="box" id='box8'></div>
+    <div class="box" id='box9'></div>
+
+  </div>
 ```
 
-| Functions           | Description |
-| -----------         | ----------- |
-| `handleWin()`       | Handle the win of either player |
-| `checkGameStatus()` | Check the status after each turn |
+``` javascript
+function placeMark(box, currentMark){
+    box.classList.add(currentMark);
+    checkWin();
+    document.querySelector(".display").innerText = `${currentMark}'s turn next!`
+```
+
